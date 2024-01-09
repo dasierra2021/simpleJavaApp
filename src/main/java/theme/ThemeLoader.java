@@ -2,8 +2,8 @@ package theme;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.houarizegai.calculator.theme.properties.Theme;
-import com.houarizegai.calculator.theme.properties.ThemeList;
+import theme.properties.Theme;
+import theme.properties.ThemeList;
 
 import java.io.File;
 import java.io.IOException;

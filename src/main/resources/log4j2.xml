@@ -10,7 +10,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Root level="INFO">
+        <Root level="DEBUG">
             <AppenderRef ref="stdout" />
             <AppenderRef ref="fout"/>
         </Root>

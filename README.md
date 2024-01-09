@@ -25,12 +25,17 @@ A simple calculator application written in Java with a graphical user interface.
 2. Navigate to the project directory:
 
    ```bash
-   cd java-calculator
+   cd simpleJavaApp
 
 3. Compile and run the application:
 
    ```bash
-    java -jar target/java-calculator.jar
+    mvn package
+
+4. Compile and run the application:
+
+   ```bash
+    java -jar Calculator-1.0-SNAPSHOT.jar
 
 The calculator application will open, allowing you to perform calculations.
 

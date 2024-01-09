@@ -11,12 +11,19 @@ import java.util.regex.Pattern;
 import java.awt.Color;
 import javax.swing.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import static util.ColorUtil.hex2Color;
+
 /**
  * The main class representing the graphical user interface of the calculator application.
  * It includes methods for initializing the UI components, handling user input, and applying themes.
  */
 
 public class CalculatorUI {
+
+    private static final Logger logger = LogManager.getLogger(CalculatorUI.class);
 
     // Constants for UI styling
     private static final String FONT_NAME = "Comic Sans MS";
@@ -71,6 +78,9 @@ public class CalculatorUI {
      * Initializes the UI components, themes, and sets up event listeners.
      */
     public CalculatorUI() {
+        // Log a DEBUG message when initializing the UI
+        logger.debug("Initializing Calculator UI");
+
         themesMap = ThemeLoader.loadThemes();
 
         // Initialization of UI components
@@ -125,6 +135,9 @@ public class CalculatorUI {
      * Initializes the theme selector dropdown and sets up the event listener for any theme changes.
      */
     private void initThemeSelector() {
+        // Log an INFO message when initializing the theme selector
+        logger.info("Initializing Theme Selector");
+
         comboTheme = createComboBox(themesMap.keySet().toArray(new String[0]), 230, 30, "Theme");
         comboTheme.addItemListener(event -> {
             if (event.getStateChange() != ItemEvent.SELECTED)
@@ -132,6 +145,9 @@ public class CalculatorUI {
 
             String selectedTheme = (String) event.getItem();
             applyTheme(themesMap.get(selectedTheme));
+
+            // Log an INFO message when a theme is selected
+            logger.info("Theme selected: {}", selectedTheme);
         });
 
         if (themesMap.entrySet().iterator().hasNext()) {
@@ -195,6 +211,9 @@ public class CalculatorUI {
             inputScreen.setText("0");
             selectedOperator = ' ';
             typedValue = 0;
+
+            // Log a WARNING message when the 'C' button is pressed
+            logger.warn("'C' button pressed - Resetting calculator");
         });
 
         btnBack = createButton("<-", columns[1], rows[1]);
@@ -485,6 +504,14 @@ public class CalculatorUI {
                 }
                 selectedOperator = '=';
                 addToDisplay = false;
+
+                // Log an INFO message when the '=' button is pressed
+                logger.info("'=' button pressed - Result: {}", typedValue);
+
+                // Log an ERROR message if the result is NaN (Not a Number)
+                if (Double.isInfinite(typedValue)) {
+                    logger.error("Calculation result is Infinity. Please check the input.");
+                }
             }
         });
         btnEqual.setSize(2 * BUTTON_WIDTH + 10, BUTTON_HEIGHT);
