@@ -45,4 +45,4 @@ The project is organized into distinct Java classes within a specific package st
 
 ## Licensing
 
-This project operates under the [MIT License](LICENSE). You are free to utilize, modify, and distribute the code in accordance with the stipulations of the license.
+You are free to utilize, modify, and distribute the code in accordance with the stipulations of the license.
