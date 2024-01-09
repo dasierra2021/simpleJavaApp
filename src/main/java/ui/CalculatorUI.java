@@ -122,7 +122,7 @@ public class CalculatorUI {
     }
 
     /**
-     * Initializes the theme selector dropdown and sets up the event listener for theme changes.
+     * Initializes the theme selector dropdown and sets up the event listener for any theme changes.
      */
     private void initThemeSelector() {
         comboTheme = createComboBox(themesMap.keySet().toArray(new String[0]), 230, 30, "Theme");
