@@ -9,5 +9,4 @@ public class CalculatorIntegrationTest {
         // Perform actions on the calculator that involve theme loading
         assertTrue(calculator.getThemesMap().size() > 0);
     }
-
 }
