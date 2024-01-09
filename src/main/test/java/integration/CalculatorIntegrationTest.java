@@ -10,5 +10,4 @@ public class CalculatorIntegrationTest {
         assertTrue(calculator.getThemesMap().size() > 0);
     }
 
-    // More integration tests for other interactions...
 }
